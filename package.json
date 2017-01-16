@@ -1,0 +1,25 @@
+{
+  "name": "nodejsbible",
+  "version": "1.0.0",
+  "description": "Reader of Bible",
+  "main": "bible.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shmuel83/NodeJSBible.git"
+  },
+  "keywords": [
+    "bible",
+    "jesus",
+    "god",
+    "dieu"
+  ],
+  "author": "Rodolphe MOULIN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shmuel83/NodeJSBible/issues"
+  },
+  "homepage": "https://github.com/Shmuel83/NodeJSBible#readme"
+}
