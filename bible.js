@@ -1,15 +1,13 @@
 var http = require('http');
 const readline = require('readline');
-var xml2js = require('./lib_XML2JS/xml2js.js').parseString;
+var xml2js = require('./lib_XML2JS/xml2js').parseString;
 
-//var nodejsbible = function (options) {
-var nodejsbible = module.exports = function (options) {
-	
 var myBook = "Jn";
 var myChapt = 1;
 var myVerseStart = 1;
 var myVerseStop = 2;
 var myVersion = "darby";
+var urlApi = "";
 /*
 var server = http.createServer(function(req, res) {
   res.writeHead(200);
@@ -50,7 +48,6 @@ function requestChapter() {
 		requestVerseStart();
 		process.stdin.destroy();		
 	});
-	
 }
 
 function requestBook() {
@@ -67,7 +64,7 @@ function requestBook() {
 function getTestPersonaLoginCredentials(callback) {
 return http.get({
         host: "api.preachingcentral.com",
-		path: "/bible.php?passage="+myBook+myChapt+":"+myVerseStart+"-"+myVerseStop+"&version="+myVersion
+		path: callback
     }, function(response) {
         // Continuously update stream with data
         var body = '';
@@ -82,14 +79,42 @@ return http.get({
 			xml2js(parsed, function (err, result) {
 				for(var i=0; i<=(myVerseStop-myVerseStart); i++) {
 					var myjson = result.bible.range[0].item[i].text;
-					console.dir(myjson);
+					console.log(myjson);
 				}
 			});
         });
     });
 }
 //requestBook();
-getTestPersonaLoginCredentials();
-
-
-};
+//Passage on arguments
+if(process.argv.slice(2)) {
+	var argPassage = "";
+	
+	//Version of bible on argument
+	if(process.argv.length == 4) {
+		argPassage = process.argv.slice(2,3)+"";
+		myVersion = process.argv.slice(3);
+	}
+	//No version of bible. To have version by default
+	if(process.argv.length == 3) {
+		argPassage = process.argv.slice(2)+"";
+	}
+	//Url do query API
+	urlApi = "/bible.php?passage="+argPassage+"&version="+myVersion;
+	
+	//Display reference number
+	console.log("\n"+argPassage + " "+myVersion+"\n");
+	
+	//Formating verses to calculate number of verses to display
+	myVerseStart = Number((argPassage.split(':')[1]).split("-")[0]);
+	//If only verse to display
+	if(typeof(myVerseStop = (argPassage.split(':')[1]).split("-")[1])!="string") {
+		myVerseStop = myVerseStart;		
+	}
+	myVerseStop = Number(myVerseStop);
+	
+}
+else {
+	urlApi = "/bible.php?passage="+myBook+myChapt+":"+myVerseStart+"-"+myVerseStop+"&version="+myVersion;
+}
+getTestPersonaLoginCredentials(urlApi);
