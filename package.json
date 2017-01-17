@@ -1,6 +1,6 @@
 {
   "name": "nodejsbible",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Reader of Bible",
   "main": "bible.js",
   "scripts": {
@@ -21,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/Shmuel83/NodeJSBible/issues"
   },
-  "homepage": "https://github.com/Shmuel83/NodeJSBible#readme"
+  "homepage": "https://github.com/Shmuel83/NodeJSBible#readme",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {}
 }
