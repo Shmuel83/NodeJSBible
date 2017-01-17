@@ -16,7 +16,7 @@
     "god",
     "dieu"
   ],
-  "author": "Rodolphe MOULIN",
+  "author": "Rodolphe MOULIN <rodolphe.moulin@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Shmuel83/NodeJSBible/issues"

@@ -2,7 +2,8 @@ var http = require('http');
 const readline = require('readline');
 var xml2js = require('./lib_XML2JS/xml2js.js').parseString;
 
-var NodeJSBible = function (options) {
+//var nodejsbible = function (options) {
+var nodejsbible = module.exports = function (options) {
 	
 var myBook = "Jn";
 var myChapt = 1;
@@ -87,9 +88,8 @@ return http.get({
         });
     });
 }
-requestBook();
-//getTestPersonaLoginCredentials();
+//requestBook();
+getTestPersonaLoginCredentials();
 
 
-}
-module.exports = NodeJSBible;
+};
