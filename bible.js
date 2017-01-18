@@ -1,66 +1,11 @@
 var http = require('http');
-const readline = require('readline');
 var xml2js = require('./lib_XML2JS/xml2js').parseString;
 var fs = require("fs");
 
-var myBook = "Jn";
-var myChapt = 1;
 var myVerseStart = 1;
 var myVerseStop = 2;
 var myVersion = "darby";
 var urlApi = "";
-/*
-var server = http.createServer(function(req, res) {
-  res.writeHead(200);
-  res.end('Salut tout le monde !');
-});
-server.listen(8080);
-*/
-process.stdin.resume();
-process.stdin.setEncoding('utf8');
-
-var rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-
-function requestVerseStop() {
-		rl.question('Verse Stop? ', function(answer) {
-		rl.close();
-		process.stdin.destroy();
-		myBook = Number(answer);
-	});	
-}
-
-function requestVerseStart() {
-		rl.question('Verse Start? ', function(answer) {
-		myBook = Number(answer);
-		rl.close();
-		process.stdin.destroy();
-		requestVerseStop();
-	});	
-}
-
-function requestChapter() {
-		process.stdin.destroy();	
-		rl.question('Chapt? ', function(answer) {
-		myChapt = Number(answer);
-		rl.close();
-		requestVerseStart();
-		process.stdin.destroy();		
-	});
-}
-
-function requestBook() {
-  rl.question('Book? ', function(answer) {
-  myBook = answer;
-  rl.close();
-  //requestChapter();
-  getTestPersonaLoginCredentials();
-  process.stdin.destroy();  
-  });
-  
-}
 
 function getTestPersonaLoginCredentials(callback) {
 return http.get({
@@ -87,7 +32,7 @@ return http.get({
         });
     });
 }
-//requestBook();
+
 var args = process.argv.slice(2)
 if (args[0] === '-h' || args[0] === '--help' || args[0] === 'help') {
   // process prints contents of `usage.txt` and returns
@@ -136,6 +81,5 @@ if(args!="") {
 	}
 }
 else {
-	//urlApi = "/bible.php?passage="+myBook+myChapt+":"+myVerseStart+"-"+myVerseStop+"&version="+myVersion;
 	console.log("You can add an argument, a reference or --help");
 }
