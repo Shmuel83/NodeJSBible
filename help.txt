@@ -1,0 +1,18 @@
+bible --help
+usage: nodejsbible [reference] [version]
+
+NodeJSBible is a reader of bible via the command line.
+
+options:
+  --v, --version          prints the tool and the Bible.JS version.
+  -h --help               prints this output.
+
+references:
+ - References separated by spaces (see the examples).
+
+examples:
+   nodejsbible Jn3:16
+   nodejsbible Gen1:1-7
+   nodejsbible 1Jn1:1-7 kjv
+
+Documentation can be found at https://github.com/Shmuel83/NodeJSBible

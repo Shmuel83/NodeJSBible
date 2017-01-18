@@ -1,6 +1,6 @@
 {
   "name": "nodejsbible",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Reader of Bible",
   "main": "bible.js",
   "scripts": {

@@ -1,6 +1,7 @@
 var http = require('http');
 const readline = require('readline');
 var xml2js = require('./lib_XML2JS/xml2js').parseString;
+var fs = require("fs");
 
 var myBook = "Jn";
 var myChapt = 1;
@@ -81,13 +82,28 @@ return http.get({
 					var myjson = result.bible.range[0].item[i].text;
 					console.log(myjson);
 				}
+				process.exit();
 			});
         });
     });
 }
 //requestBook();
+var args = process.argv.slice(2)
+if (args[0] === '-h' || args[0] === '--help' || args[0] === 'help') {
+  // process prints contents of `usage.txt` and returns
+  console.log('\033[2J');
+  console.log(fs.readFileSync("./help.txt", "UTF-8"));
+  process.exit();
+}
+if(args[0] === '-v' || args[0] === '--version' || args[0] === 'version') {
+	var JSONPackageFile = fs.readFileSync("./package.json", "UTF-8");
+	var JSONPackage = JSON.parse(JSONPackageFile);
+	console.log("Version of nodejsbible : "+JSONPackage.version);
+	process.exit();
+}
 //Passage on arguments
-if(process.argv.slice(2)) {
+if(args!="") {
+	console.log(args);
 	var argPassage = "";
 	
 	//Version of bible on argument
@@ -106,15 +122,20 @@ if(process.argv.slice(2)) {
 	console.log("\n"+argPassage + " "+myVersion+"\n");
 	
 	//Formating verses to calculate number of verses to display
-	myVerseStart = Number((argPassage.split(':')[1]).split("-")[0]);
-	//If only verse to display
-	if(typeof(myVerseStop = (argPassage.split(':')[1]).split("-")[1])!="string") {
-		myVerseStop = myVerseStart;		
+	try {
+		myVerseStart = Number((argPassage.split(':')[1]).split("-")[0]);
+		//If only verse to display
+		if(typeof(myVerseStop = (argPassage.split(':')[1]).split("-")[1])!="string") {
+			myVerseStop = myVerseStart;		
+		}
+		myVerseStop = Number(myVerseStop);
+		getTestPersonaLoginCredentials(urlApi);
+		} catch (err) {
+		console.log("You can add an argument, a reference or --help");
+		process.exit();
 	}
-	myVerseStop = Number(myVerseStop);
-	
 }
 else {
-	urlApi = "/bible.php?passage="+myBook+myChapt+":"+myVerseStart+"-"+myVerseStop+"&version="+myVersion;
+	//urlApi = "/bible.php?passage="+myBook+myChapt+":"+myVerseStart+"-"+myVerseStop+"&version="+myVersion;
+	console.log("You can add an argument, a reference or --help");
 }
-getTestPersonaLoginCredentials(urlApi);
