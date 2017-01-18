@@ -42,13 +42,13 @@ var args = process.argv.slice(2)
 if (args[0] === '-h' || args[0] === '--help' || args[0] === 'help') {
   // process prints contents of `usage.txt` and returns
   console.log('\033[2J');
-  console.log(fs.readFileSync("../help.txt", "UTF-8"));
+  console.log(fs.readFileSync(__dirname + "/../help.txt", "UTF-8"));
   process.exit();
 }
 // --Version
 //Check version on system and NPM clound
 if(args[0] === '-v' || args[0] === '--version' || args[0] === 'version') {
-	var JSONPackageFile = fs.readFileSync("../package.json", "UTF-8");
+	var JSONPackageFile = fs.readFileSync(__dirname + "/../package.json", "UTF-8");
 	var JSONPackage = JSON.parse(JSONPackageFile);
 	console.log("Version of nodejsbible :\nOn your system: "+JSONPackage.version);
 	
