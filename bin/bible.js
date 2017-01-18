@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var http = require('http');
-var xml2js = require('./lib_XML2JS/xml2js').parseString;
+var xml2js = require('../lib_XML2JS/xml2js').parseString;
 var fs = require("fs");
 const exec = require('child_process').exec;
 
@@ -42,19 +42,19 @@ var args = process.argv.slice(2)
 if (args[0] === '-h' || args[0] === '--help' || args[0] === 'help') {
   // process prints contents of `usage.txt` and returns
   console.log('\033[2J');
-  console.log(fs.readFileSync("./help.txt", "UTF-8"));
+  console.log(fs.readFileSync("../help.txt", "UTF-8"));
   process.exit();
 }
 // --Version
 //Check version on system and NPM clound
 if(args[0] === '-v' || args[0] === '--version' || args[0] === 'version') {
-	var JSONPackageFile = fs.readFileSync("./package.json", "UTF-8");
+	var JSONPackageFile = fs.readFileSync("../package.json", "UTF-8");
 	var JSONPackage = JSON.parse(JSONPackageFile);
 	console.log("Version of nodejsbible :\nOn your system: "+JSONPackage.version);
 	
 	exec("npm view nodejsbible version",(error, stdout, stderr) => {
 	console.log(`On NPM : ${stdout}`);
-		console.log("If "+stdout.trim()+"<"+JSONPackage.version+" you must to do an update ! (npm update -g nodejsbible)");
+		console.log("If "+stdout.trim()+">"+JSONPackage.version+" you must to do an update ! (npm update -g nodejsbible)");
   process.exit();
 });
 }
