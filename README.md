@@ -2,78 +2,41 @@
 
 Read the Holy Bible via the command line.
 
-![bible](http://i.imgur.com/CcEXgHy.png)
-
 ## Installation
 
 You can install the package globally and use it as command line tool:
 
 ```sh
-$ npm i -g bible
+$ npm i -g npmjsbible
 ```
 
-Then, run `bible --help` and see what the cli tool can do.
+Then, run in directory node_module `node bible.js --help` and see what the cli tool can do.
 
 ```sh
-$ bible --help
 bible --help
-usage: bible [options] [reference1, reference2, ...]
+usage: nodejsbible [reference] [version]
 
-Bible.JS CLI client. Read the Holy Bible via the command line.
+NodeJSBible is a reader of bible via the command line.
 
 options:
   --v, --version          prints the tool and the Bible.JS version.
-  --lang, --language      sets the language.
-  --onlyVerses            doesn't display the table, just the verses.
-  --s, --search           gets the verses that match to the string or
-                          regular expression provided.
-  --rc, --resultColor     sets the result color when searching something.
   -h --help               prints this output.
 
 references:
  - References separated by spaces (see the examples).
 
 examples:
-   bible --lang en 'John 1:1-10' 'Genesis 2:3-7'
-   bible --lang ro --search 'Meroza'
-   bible --lang ro --search '/Meroza/gi'
+   nodejsbible Jn3:16
+   nodejsbible Gen1:1-7
+   nodejsbible 1Jn1:1-7 kjv
+
+Documentation can be found at https://github.com/Shmuel83/NodeJSBible
 
 ```
-
-## First run
-Like documented above, on the first run the application will sync the submodules
-creating the configuration file (`~/.bible-config.json`) and downloading the
-submodules in the `~/.bible` directory.
-
-```sh
-$ bible 'Genesis 1:1'
-warn  [...] No configuration file was found. Initing the configuration file.
-warn  [...] The configuration file created successfully at the following location: /home/ionicabizau/.bible-config.json
-info  [...] ~/.bible directory was not found. Downloading packages. This may take a while.
-...
-```
-
-The default configuration file is:
-
-```json
-{
-    "versions": {
-        "en": {
-            "source": "https://github.com/BibleJS/bible-english",
-            "version": "master",
-            "language": "en"
-        },
-        "ro": {
-            "source": "https://github.com/BibleJS/bible-romanian",
-            "version": "master",
-            "language": "ro"
-        }
-    },
-    "resultColor": "255, 0, 0",
-    "searchLimit": 10,
-    "language": "en"
-}
-```
+## First used
+This application used an API on website api.preachingcentral.com/
+This API support lot of languages and lot of version. To choice the version thaht you want, see bible-versions.xml file in node_module/npmjsbible/ directory
+To choice the book, you must write Jn for John, Gen for Genese. All acronym of book of bible-book.xml file in application directory.
 
 ## Examples
 
