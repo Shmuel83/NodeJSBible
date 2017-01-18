@@ -1,6 +1,6 @@
 {
   "name": "nodejsbible",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Reader of Bible",
   "main": "bible.js",
   "scripts": {
@@ -9,6 +9,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Shmuel83/NodeJSBible.git"
+  },
+  "bin": {
+    "nodejsbible": "./bin/nodejsbible"
   },
   "keywords": [
     "bible",
