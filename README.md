@@ -10,7 +10,7 @@ You can install the package globally and use it as command line tool:
 $ npm i -g npmjsbible
 ```
 
-Then, run in directory node_module `node bible.js --help` and see what the cli tool can do.
+Then, run application with write `nodejsbible --help` and see what the application can do.
 
 ```sh
 bible --help
@@ -34,14 +34,15 @@ Documentation can be found at https://github.com/Shmuel83/NodeJSBible
 
 ```
 ## First used
+This package used XML2JS library. You must install this package with 'npm i xml2js'
 This application used an API on website api.preachingcentral.com/
-This API support lot of languages and lot of version. To choice the version thaht you want, see bible-versions.xml file in node_module/npmjsbible/ directory
+This API support lot of languages and lot of version. To choice the version that you want, see bible-versions.xml file in node_module/npmjsbible/ directory
 To choice the book, you must write Jn for John, Gen for Genese. All acronym of book of bible-book.xml file in application directory.
 
 ## Examples
 
 ```js
-$C:\Users\******\node_modules node nodejsbible.js Jn3:16-20 kjv
+$ nodejsbible Jn3:16-20 kjv
 [ 'Jn3:16-20', 'kjv' ]
 
 Jn3:16-20 kjv
@@ -52,6 +53,5 @@ Jn3:16-20 kjv
 [ 'And this is the condemnation, that light is come into the world, and men loved darkness rather than light, because their deeds were evil.' ]
 [ 'For every one that doeth evil hateth the light, neither cometh to the light, lest his deeds should be reproved.' ]
 
-$C:\Users\******\node_modules
-
+$
 ```
