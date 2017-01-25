@@ -7,7 +7,7 @@ Read the Holy Bible via the command line.
 You can install the package globally and use it as command line tool:
 
 ```sh
-$ npm i -g npmjsbible
+$ npm i -g nodejsbible
 ```
 
 Then, run application with write `nodejsbible --help` and see what the application can do.
@@ -34,7 +34,7 @@ Documentation can be found at https://github.com/Shmuel83/NodeJSBible
 
 ```
 ## First used
-This package used XML2JS library. You must install this package with 'npm i xml2js'
+This package used XML2JS library. You must install this package with 'npm i xml2js' if the package don't install that
 This application used an API on website api.preachingcentral.com/
 This API support lot of languages and lot of version. To choice the version that you want, see bible-versions.xml file in node_module/npmjsbible/ directory
 To choice the book, you must write Jn for John, Gen for Genese. All acronym of book of bible-book.xml file in application directory.
