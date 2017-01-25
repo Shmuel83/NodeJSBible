@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-var http = require('http');
-var xml2js = require('../lib_XML2JS/xml2js').parseString;
+var http = require("http");
+var xml2js = require("xml2js").parseString;
 var fs = require("fs");
-const exec = require('child_process').exec;
+const exec = require("child_process").exec;
 
 var myVerseStart = 1;
 var myVerseStop = 2;
@@ -60,7 +60,6 @@ if(args[0] === '-v' || args[0] === '--version' || args[0] === 'version') {
 }
 //Passage on arguments
 else { if(args!="") {
-	console.log(args);
 	var argPassage = "";
 	
 	//Version of bible on argument
