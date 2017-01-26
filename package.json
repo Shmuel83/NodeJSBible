@@ -1,6 +1,6 @@
 {
   "name": "nodejsbible",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "Reader of Bible",
   "main": "bible.js",
   "scripts": {
@@ -29,7 +29,7 @@
     "test": "test"
   },
   "dependencies": {
-	"xml2js": "^0.4.17"
+    "xml2js": "^0.4.17"
   },
   "devDependencies": {}
 }
